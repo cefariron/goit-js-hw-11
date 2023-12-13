@@ -21,6 +21,8 @@ async function onSubmit(event) {
         if(hits.length === 0){
             return Notiflix.Notify.warning('Sorry, there are no images matching your search query. Please try again.');
         }
+
+        listEl.innerHTML = createMarkup(hits)
     } catch (error) {
         console.log(error.message);
     }
@@ -29,21 +31,21 @@ async function onSubmit(event) {
 function createMarkup(arr) {
     return arr.map(item => `
     <div class="photo-card">
-  <img src="" alt="" loading="lazy" />
+  <img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
-      <b>Likes</b>
+      <b>Likes: ${item.likes}</b>
     </p>
     <p class="info-item">
-      <b>Views</b>
+      <b>Views: ${item.views}</b>
     </p>
     <p class="info-item">
-      <b>Comments</b>
+      <b>Comments: ${item.comments}</b>
     </p>
     <p class="info-item">
-      <b>Downloads</b>
+      <b>Downloads: ${item.downloads}</b>
     </p>
   </div>
 </div>
-    `)
+    `).join("")
 }
