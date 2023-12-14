@@ -1,12 +1,18 @@
-.gallery-section {
-    padding: 60px 0;
+/* .gallery-section {
+    padding-top: 20px;
+  } */
+
+  .form-wrapper {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    background-color: rgb(19, 77, 236);
   }
   
   .search-form {
     display: flex;
     width: 600px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    
   }
   
   .search-input {
@@ -21,7 +27,7 @@
   .load-more {
     font-size: 14px;
     padding: 10px 20px;
-    background-color: #2ecc71;
+    background-color: #24e952;
     color: #ffffff;
     border: none;
     text-transform: uppercase;
@@ -49,15 +55,16 @@
   .gallery-list {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -30px;
-    margin-top: -30px;
     margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    /* gap: 40px; */
+    row-gap: 20px;
+    column-gap: 20px;
   }
   
   .gallery__item {
-    flex-basis: calc((100% - 120px) / 4);
-    margin-left: 30px;
-    margin-top: 30px;
+    /* flex-basis: calc((100% - 120px) / 4); */
   }
   
   .gallery-img {
@@ -65,5 +72,6 @@
     height: 100%;
     max-width: unset;
     object-fit: cover;
+    border-radius: 8px;
   }
   

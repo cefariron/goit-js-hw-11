@@ -29,9 +29,9 @@ async function onSubmit(event) {
 }
 
 function createMarkup(arr) {
-    return arr.map(item => `
+    return arr.map(item => `<li class="gallery__item">
     <div class="photo-card">
-  <img src="${item.webformatURL}" alt="${item.tags}" loading="lazy" />
+  <img class="gallery-img" src="${item.webformatURL}" alt="${item.tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
       <b>Likes: ${item.likes}</b>
@@ -47,5 +47,6 @@ function createMarkup(arr) {
     </p>
   </div>
 </div>
+</li>
     `).join("")
 }
