@@ -16,6 +16,3 @@ export function getPhotos(q, page) {
     },
   });
 }
-
-
-//https://pixabay.com/api/?key=41199843-46e31a86461bb2de689133685&q=yellow+flowers&image_type=photo
