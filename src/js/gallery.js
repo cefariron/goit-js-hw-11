@@ -16,16 +16,16 @@ async function onSubmit(event) {
   page = 1;
   querry = event.target.elements.searchQuery.value;
 
-  getPhotos().then(res => {
-    perPage = res.config.params.per_page;
-  }).catch(err => {
-    throw err;
-  });
+  if(querry === "") {
+    return;
+  }
 
   try {
     const {
-      data: { totalHits, hits },
+       data: { totalHits, hits }, config: { params: { per_page } }
     } = await getPhotos(querry, page);
+
+    perPage = per_page;
     if (hits.length === 0) {
       listEl.innerHTML = "";
       return Notiflix.Notify.warning(
@@ -43,7 +43,7 @@ async function onSubmit(event) {
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure('Oops! Sorry, something is wrong!');
-  }
+  } finally { event.target.reset() }
 }
 
 async function onLoadMoreBtnClick() {
